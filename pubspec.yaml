@@ -33,6 +33,7 @@ dependencies:
   cloud_firestore: ^0.14.3
   bloc_pattern: ^2.5.1
   rxdart: ^0.24.1
+  square_in_app_payments: ^1.1.0
 
 
 dev_dependencies:

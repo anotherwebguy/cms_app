@@ -1,3 +1,4 @@
+
 import 'dart:math';
 
 import 'package:bloc_pattern/bloc_pattern.dart';
@@ -137,7 +138,9 @@ class BottomBar extends StatelessWidget {
           RaisedButton(
             child: Text("Next"),
             color: Colors.orangeAccent,
-            onPressed: (){generateotp();},
+            onPressed: (){
+              
+            },
           ),
         ],
       ),

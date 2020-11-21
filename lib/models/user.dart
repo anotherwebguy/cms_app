@@ -1,7 +1,7 @@
-class User{
+class UserLog{
 
   final String uid;
 
-  User(this.uid);
+  UserLog({this.uid});
   
 }

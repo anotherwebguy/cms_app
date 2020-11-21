@@ -29,13 +29,17 @@ class _LoginState extends State<Login> {
 
   bool isLoading = false;
   UserCredential authResult;
+  User_userFromfirebase(authResult){
+    return authResult!=null ? UserLog(uid: authResult.user.uid) : null;
+  }
+
   void submit() async{
     setState(() {
       isLoading=true;
     });
     try{
         authResult = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email.text, password: password.text);
-        
+        User_userFromfirebase(authResult);
         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>HomePage(uid: authResult.user.uid,)));
     }on PlatformException catch(e){
         String message = "please check internet connection";

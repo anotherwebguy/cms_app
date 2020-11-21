@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 
 import '../cart.dart';
 
+
+
 class HomePage extends StatelessWidget {
   final String uid;
   HomePage({this.uid});
@@ -19,16 +21,17 @@ class HomePage extends StatelessWidget {
         Bloc((i)=> CartListBloc()),
         Bloc((i)=> ColorBloc())
       ],
-      child: MaterialApp(
-        title:'Canteen',
-        home: Home(),
-        debugShowCheckedModeBanner: false,
+      child: Scaffold(
+        
+        body: Home(),
+        
       ),
     );
   }
 }
 
 class Home extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,6 +96,7 @@ class ItemContainer extends StatelessWidget {
 }
 
 class FirstHalf extends StatelessWidget {
+  
   const FirstHalf({
     Key key,
   }) : super(key: key);
@@ -110,7 +114,7 @@ class FirstHalf extends StatelessWidget {
           SizedBox(height: 30),
           searchBar(),
           SizedBox(height: 45),
-          categories(),
+         // categories(),
         ],
       ),
     );
@@ -388,6 +392,9 @@ Widget title() {
 }
 
 class CustomAppBar extends StatelessWidget {
+  void checkAdmin(){
+      
+  }
   @override
   Widget build(BuildContext context) {
     final CartListBloc bloc = BlocProvider.getBloc<CartListBloc>();
@@ -397,7 +404,12 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Icon(Icons.menu),
+          IconButton(icon: Icon(Icons.admin_panel_settings),iconSize: 50,
+          onPressed: (){},
+          ),
+          IconButton(icon: Icon(Icons.add),iconSize: 50,
+          onPressed: (){},
+          ),
           StreamBuilder(
             stream: bloc.listStream,
             builder: (context, snapshot) {
