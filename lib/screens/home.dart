@@ -339,28 +339,24 @@ class CategoryListItem extends StatelessWidget {
 }
 
 Widget searchBar() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: <Widget>[
-      Icon(
-        Icons.search,
-        color: Colors.black45,
+  return Column(
+    children: [
+      Row(
+        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+         Text("Feeling Hungry?",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Colors.black,),),
+         Icon(Icons.restaurant),
+        ],
       ),
-      SizedBox(width: 20),
-      Expanded(
-        child: TextField(
-          decoration: InputDecoration(
-              hintText: "Search....",
-              contentPadding: EdgeInsets.symmetric(vertical: 10),
-              hintStyle: TextStyle(
-                color: Colors.black87,
-              ),
-              border: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red))),
-        ),
-      ),
+      Text("Come! grab some food.",style: TextStyle(color: Colors.black,fontSize: 20),)
     ],
   );
+}
+
+void onTextFieldSubmitted(String input) {
+ 
+   
+   
 }
 
 Widget title() {
@@ -407,9 +403,7 @@ class CustomAppBar extends StatelessWidget {
           IconButton(icon: Icon(Icons.admin_panel_settings),iconSize: 50,
           onPressed: (){},
           ),
-          IconButton(icon: Icon(Icons.add),iconSize: 50,
-          onPressed: (){},
-          ),
+          
           StreamBuilder(
             stream: bloc.listStream,
             builder: (context, snapshot) {
